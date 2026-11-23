@@ -1,0 +1,36 @@
+{
+  "name": "dsh-mac-computer-use",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "index.mjs",
+  "description": "Codex-style browser and native macOS Computer Use plugin for DeepSeek Harness",
+  "dsh": {
+    "bundle": {
+      "patch": [
+        "cordis.patch.yml"
+      ]
+    }
+  },
+  "license": "Apache-2.0",
+  "os": [
+    "darwin"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "bash ./build.sh",
+    "test": "node --test test/*.test.mjs",
+    "check": "node --check index.mjs && for f in lib/*.mjs test/*.mjs; do node --check \"$f\" || exit; done"
+  },
+  "files": [
+    "index.mjs",
+    "cordis.patch.yml",
+    "lib/",
+    "hud/",
+    "build.sh",
+    "README.md",
+    "THIRD_PARTY.md"
+  ]
+}

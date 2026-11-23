@@ -1,0 +1,21 @@
+name: macOS checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check syntax and run local tests
+        run: |
+          test -x '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+          npm run check
+          npm test
+      - name: Build and verify macOS helpers
+        run: |
+          npm run build
+          codesign --verify --strict bin/dsh-mac-cua-hud

@@ -1,0 +1,17 @@
+/bin/
+/node_modules/
+/coverage/
+/.env
+/.env.*
+.DS_Store
+*.log
+*.tgz
+*.sock
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.gif
+*.dmg
+*.app/
+/profiles/
